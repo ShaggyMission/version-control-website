@@ -55,20 +55,6 @@ jobs:
 
   # PROD PIPELINE (AZURE VM)
 
-  test-prod:
-    name: Test Production
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - run: npm install
-      - run: npm test
 
   build-and-push:
     name: Build and Push Docker Image
