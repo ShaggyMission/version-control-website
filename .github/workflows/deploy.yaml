@@ -3,55 +3,11 @@ name: CI/CD
 on:
   push:
     branches:
-      - qa
       - main
     tags:
       - 'v*'
 
 jobs:
-
-  # QA PIPELINE (VERCEL)
-
-  test-qa:
-    name: Test QA
-    if: github.ref == 'refs/heads/qa'
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: npm install
-      - run: npm test
-
-  deploy-qa:
-    name: Deploy QA Vercel
-    if: github.ref == 'refs/heads/qa'
-    needs: test-qa
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - run: npm install -g vercel
-
-      - run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID_QA }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_QA }}
-
-      - run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID_QA }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_QA }}
-
-      - run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID_QA }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_QA }}
 
   # PROD PIPELINE (AZURE VM)
 
