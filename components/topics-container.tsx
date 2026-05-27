@@ -7,7 +7,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { AlertCircle, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"
+const API_URL = "http://68.220.147.196:3001"
 
 const fetcher = (url: string) => fetch(url).then((res) => {
   if (!res.ok) throw new Error("Error al cargar los temas")
