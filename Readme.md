@@ -51,7 +51,7 @@ Componente principal que maneja toda la lógica de datos:
 ## 🔌 Conexión con la API
  
 ```ts
-const API_URL = "http://68.220.147.196:3001"
+const API_URL = "http://68.220.147.196"
 ```
  
 El fetcher lanza un error si la respuesta no es `ok`, lo que permite a SWR manejar el estado de error correctamente.
@@ -71,7 +71,7 @@ npm install
 npm run dev
 ```
  
-La app queda disponible en: `http://localhost:3000`
+La app queda disponible en: `http://localhost`
  
 ---
  
