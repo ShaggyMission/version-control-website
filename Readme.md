@@ -107,7 +107,6 @@ La imagen se publica en DockerHub con el tag de la versión:
 ```
 shaggymission/version-control-website:v1.0.0
 ```
- 
 El contenedor se llama `frontend` y mapea el puerto `80` del host al `3000` de la app.
  
 Para correr la imagen manualmente:
