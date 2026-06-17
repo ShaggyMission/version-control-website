@@ -6,7 +6,6 @@ on:
       - main
     tags:
       - 'v*'
-
 jobs:
 
   # PROD PIPELINE (AZURE VM)
